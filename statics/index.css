@@ -1,0 +1,853 @@
+@font-face {
+    font-family: mini;
+    src: url(./mini.ttf);
+}
+
+@font-face {
+    font-family: quicksand;
+    src: url(./Quicksand-Regular.otf);
+}
+
+html, body{
+    overflow: hidden;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    min-width: 600px;
+    font-family: quicksand, mini;
+}
+
+:root {
+    --map-color-red: red;
+    --map-color-green: green;
+    --map-color-lightblue: #4363d8;
+    --map-color-purple: purple;
+    --map-color-teal: teal;
+    --map-color-blue: blue;
+    --map-color-orange: #f58231;
+    --map-color-maroon: maroon;
+    --map-color-gold: gold;
+    --map-color-pink: #f032e6;
+    --map-color-brown: #9a6324;
+    --map-color-lightgreen: #7ab78c;
+    --map-color-purpleblue: #483d8b;
+}
+
+.red {
+    background-color: var(--map-color-red) !important;
+}
+
+.green {
+    background-color: var(--map-color-green) !important;
+}
+
+.lightblue {
+    background-color: var(--map-color-lightblue) !important;
+}
+
+.purple {
+    background-color: var(--map-color-purple) !important;
+}
+
+.teal {
+    background-color: var(--map-color-teal) !important;
+}
+
+.blue {
+    background-color: var(--map-color-blue) !important;
+}
+
+.orange {
+    background-color: var(--map-color-orange) !important;
+}
+
+.maroon {
+    background-color: var(--map-color-maroon) !important;
+}
+
+.gold {
+    background-color: var(--map-color-gold) !important;
+}
+
+.pink {
+    background-color: var(--map-color-pink) !important;
+}
+
+.brown {
+    background-color: var(--map-color-brown) !important;
+}
+
+.lightgreen {
+    background-color: var(--map-color-lightgreen) !important;
+}
+
+.purpleblue {
+    background-color: var(--map-color-purpleblue) !important;
+}
+
+* {
+    margin: 0px;
+}
+
+body {
+    background-color: #222 !important;
+    color: white;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+#main {
+    position: fixed;
+    width: 90%;
+    height: 70%;
+    top: 15%;
+    left: 5%;
+    text-align: center;
+}
+
+.main-title {
+    font-family: quicksand, mini, serif;
+    font-size: 72px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+    text-shadow: 2px 2px teal;
+    transition: all .2s ease-in-out;
+}
+
+.main-title:hover {
+    text-shadow: 3px 3px teal;
+    transition: all .2s ease-in-out;
+}
+
+.main-subtitle {
+    text-align: center;
+    font-family: quicksand, mini, serif;
+    font-size: 24px;
+    margin: 0 0 20px 0;
+}
+
+.choices {
+    text-align: center;
+}
+
+button {
+    background-color: white;
+    box-shadow: 2px 2px teal;
+    color: teal;
+    font-family: quicksand, mini, serif;
+    padding: 10px 30px;
+    margin: 5px;
+    font-size: 24px;
+    border: 0;
+    border-width: 0 !important;
+    outline: none !important;
+    white-space: nowrap;
+    border-radius: 0;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+
+button.big {
+    font-size: 32px;
+}
+
+button:hover {
+    background-color: #bbb;
+    box-shadow: 3px 3px teal;
+}
+
+button.inverted {
+    background-color: teal;
+    color: white;
+    box-shadow: 2px 2px #222;
+}
+
+button.inverted:hover {
+    background-color: teal;
+    box-shadow: 3px 3px #222;
+}
+
+.points {
+    font-size: 36px;
+    font-family: quicksand, mini;
+}
+
+.rank {
+    font-size: 20px;
+    font-family: quicksand, mini;
+}
+
+.star {
+    font-family: serif;
+    color: var(--map-color-gold);
+}
+
+.alertback {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+}
+
+.alert {
+    position: absolute;
+    box-shadow: 2px 2px teal;
+}
+
+#calender {
+    background-color: white;
+    color: black;
+    width: 50%;
+    height: 60%;
+    top: 20%;
+    left: 25%;
+}
+
+#calenderclickhide1 {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    top: 0%;
+    left: 0%;
+}
+
+#calenderclickhide2 {
+    position: absolute;
+    width: 25%;
+    height: 60%;
+    top: 20%;
+    left: 0%;
+}
+
+#calenderclickhide3 {
+    position: absolute;
+    width: 25%;
+    height: 60%;
+    top: 20%;
+    left: 75%;
+}
+
+#calenderclickhide4 {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    top: 80%;
+    left: 0%;
+}
+
+#calendertitle {
+    font-family: mini;
+    text-shadow: 2px 2px #222;
+    color: teal;
+    padding: 10px 0px;
+    font-size: 40px;
+    text-align: center;
+    background-color: #bbb;
+}
+
+#calendertable {
+    overflow: scroll;
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    scroll-behavior: smooth;
+    overscroll-behavior: contain;
+}
+
+#calendertable table{
+    width: 90%;
+    margin-left: 5%;
+    font-size: 18px;
+    text-align: center;
+    border-collapse: collapse;
+    background-color: white;
+    font-size: 1.2em;
+}
+
+#calendertable table th{
+    font-family: Quicksand, mini;
+    border-bottom: 2px solid black;
+    padding: 5px 20px;
+}
+
+#calendertable table td{
+    font-family: Quicksand, mini;
+    border: 1px solid #aaa;
+}
+
+#leaderboardbutton {
+    position: fixed;
+    border-radius: 30px;
+    background-color: white;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    transition: all .2s ease-in-out;
+    box-shadow: 2px 2px teal;
+    top: 5px;
+    right: 7px;
+    cursor: pointer;
+}
+
+#leaderboardbutton:hover {
+    background-color: #bbb;
+    box-shadow: 3px 3px teal;
+}
+
+#leaderboardbutton img {
+    width: 40px;
+    height: 40px;
+}
+
+#username {
+    font-family: quicksand, mini;
+    color: teal;
+    outline: 0px;
+    text-align: center;
+    font-size: 24px;
+    margin: 5px;
+    margin-top: 10px;
+    padding: 10px 30px;
+    border: 0px;
+}
+
+#profilebutton {
+    position: fixed;
+    border-radius: 30px;
+    background-color: white;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    transition: all .2s ease-in-out;
+    box-shadow: 2px 2px teal;
+    top: 70px;
+    right: 7px;
+    cursor: pointer;
+}
+
+#profilebutton:hover {
+    background-color: #bbb;
+    box-shadow: 3px 3px teal;
+}
+
+#profilebutton img {
+    width: 40px;
+    height: 40px;
+}
+
+#waitingbox {
+    z-index: 99;
+    position: fixed;
+    background-color: white;
+    color: teal;
+    width: 50%;
+    height: 120px;
+    top: -122px;
+    left: 25%;
+    border-radius: 60px;
+    box-shadow: 2px 2px teal;
+    transition: .2s all ease-in-out;
+    transition: .5s top ease-in-out;
+}
+
+@media (max-width:1200px) {
+    #waitingbox {
+        width: 60%;
+        left: 20%;
+    }
+}
+
+@media (max-width:1000px) {
+    #waitingbox {
+        width: 70%;
+        left: 15%;
+    }
+}
+
+@media (max-width:840px) {
+    #waitingbox {
+        width: 80%;
+        left: 10%;
+    }
+}
+
+@media (max-width:680px) {
+    #waitingbox {
+        width: 90%;
+        left: 5%;
+    }
+}
+
+@media (max-width:600px) {
+    #waitingbox {
+        width: 100%;
+        left: 0%;
+    }
+}
+
+#waitingbox:hover {
+    box-shadow: 3px 3px teal;
+}
+
+#waiting {
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    height: 50%;
+    width: 100%;
+}
+
+#waitinginfo {
+    line-height: 60px;
+    font-family: quicksand, mini;
+    font-size: 28px;
+}
+
+#rule {
+    background-color: white;
+    color: black;
+    width: 50%;
+    height: 60%;
+    top: 20%;
+    left: 25%;
+}
+
+#rulebody {
+    padding: 15px;
+    font-size: 1.5em;
+    line-height: 2em;
+}
+
+#ruleclickhide1 {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    top: 0%;
+    left: 0%;
+}
+
+#ruleclickhide2 {
+    position: absolute;
+    width: 25%;
+    height: 60%;
+    top: 20%;
+    left: 0%;
+}
+
+#ruleclickhide3 {
+    position: absolute;
+    width: 25%;
+    height: 60%;
+    top: 20%;
+    left: 75%;
+}
+
+#ruleclickhide4 {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    top: 80%;
+    left: 0%;
+}
+
+#ruletitle {
+    font-family: mini;
+    text-shadow: 2px 2px #222;
+    color: teal;
+    padding: 10px 0px;
+    font-size: 40px;
+    text-align: center;
+    background-color: #bbb;
+}
+
+#user {
+    background-color: white;
+    color: black;
+    width: 30%;
+    top: 35%;
+    left: 35%;
+}
+
+#userclickhide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+}
+
+#usertitle {
+    text-align: center;
+    font-size: 1.8em;
+    margin: 5px;
+    margin-top: 10px;
+}
+
+#userinput {
+    text-align: center;
+}
+
+#setusername {
+    font-family: quicksand, mini;
+    color: #444;
+    background-color: #eee;
+    outline: 0px;
+    text-align: center;
+    font-size: 24px;
+    margin: 5px;
+    margin-top: 10px;
+    padding: 10px 30px;
+    border: 0px;
+    width: 80%;
+    box-sizing: border-box;
+}
+
+#userset {
+    text-align: center;
+}
+
+#userset button {
+    color: white;
+    background-color: teal;
+    box-shadow: 2px 2px #222;
+    transition: .2s all ease-in-out;
+}
+
+#userset button:hover {
+    color: white;
+    background-color: teal;
+    box-shadow: 3px 3px #222;
+}
+
+#usersetfailed{
+    background-color: rgba(255, 0, 0, 0.3);
+    text-align: center;
+    font-size: 24px;
+    margin: 4px;
+    padding: 5px;
+}
+
+
+#useralert {
+    background-color: white;
+    color: black;
+    width: 20%;
+    height: 10%;
+    top: 45%;
+    left: 40%;
+    text-align: center;
+    font-family: mini;
+}
+
+#useralert div {
+    font-size: 1.5em;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#useralertclickhide1 {
+    position: absolute;
+    width: 100%;
+    height: 45%;
+    top: 0%;
+    left: 0%;
+}
+
+#useralertclickhide2 {
+    position: absolute;
+    width: 40%;
+    height: 10%;
+    top: 45%;
+    left: 0%;
+}
+
+#useralertclickhide3 {
+    position: absolute;
+    width: 40%;
+    height: 10%;
+    top: 45%;
+    left: 60%;
+}
+
+#useralertclickhide4 {
+    position: absolute;
+    width: 100%;
+    height: 45%;
+    top: 55%;
+    left: 0%;
+}
+
+#leaderboard{
+    background-color: white;
+    color: black;
+    position: absolute;
+    width: 50%;
+    height: 60%;
+    top: 20%;
+    left: 25%;
+}
+
+#leaderboardtitle {
+    font-family: mini;
+    text-shadow: 2px 2px #222;
+    color: teal;
+    padding: 10px 0px;
+    font-size: 40px;
+    text-align: center;
+    background-color: #bbb;
+}
+
+#leaderboardclickhide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+}
+
+#leaderboardtable {
+    overflow: scroll;
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    scroll-behavior: smooth;
+    overscroll-behavior: contain;
+}
+
+#leaderboardtable table{
+    width: 70%;
+    margin-left: 15%;
+    font-size: 18px;
+    text-align: center;
+    border-collapse: collapse;
+    background-color: white;
+    font-size: 1.2em;
+}
+
+#leaderboardtable table th{
+    font-family: Quicksand, mini;
+    border-bottom: 2px solid black;
+    padding: 5px 20px;
+}
+
+#leaderboardtable table td{
+    font-family: Quicksand, mini;
+    border: 1px solid #aaa;
+}
+
+#leaderboardtable table tr.self{
+    font-family: Quicksand, mini;
+    border: 1px solid #aaa;
+    background-color: teal;
+    color: white;
+}
+
+#gamestart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 2em;
+    text-align: center;
+}
+
+#playmap {
+    border-spacing: 0px;
+    position: fixed;
+}
+
+#playmap td {
+    width: 50px;
+    height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-family: quicksand, mini, sans-serif;
+    background-color: rgb(220, 220, 220);
+    border: 1px solid #222;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    position: relative;
+}
+
+#playmap td div{
+    line-height: 50px;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-family: quicksand, mini, sans-serif;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#playmap td.fog {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid transparent;
+}
+
+#playmap td.obstacle {
+    background-color: rgba(255, 255, 255, 0.1);
+    background-image: url(./obstacle.png);
+    border: 1px solid transparent;
+}
+
+#playmap td.neutral {
+    background-color: gray;
+    color: white;
+}
+
+#playmap td.mountain {
+    background-image: url(./mountain.png);
+    background-color: rgb(187, 187, 187);
+}
+
+#playmap td.city {
+    background-image: url(./city.png);
+    background-color: gray;
+}
+
+#playmap td.general {
+    background-image: url(./crown.png);
+}
+
+#playmap td.selected {
+    border: 1px solid white;
+}
+
+#playmap td.moveable {
+    opacity: 0.4;
+}
+
+#playmap td.is50::before{
+    content: "50%";
+    font-size: 0.6em;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#playmap tfoot tr.totop{
+    font-family: quicksand, mini;
+    position: absolute;
+    display: block;
+    color: white;
+    transform: translateX(-50%);
+}
+
+#playmap tfoot tr.tobottom{
+    font-family: quicksand, mini;
+    position: absolute;
+    display: block;
+    color: white;
+    bottom: 0px;
+    transform: translateX(-50%);
+}
+
+#playmap tfoot tr.toleft{
+    font-family: quicksand, mini;
+    position: absolute;
+    display: block;
+    color: white;
+    transform: translateY(-50%);
+}
+
+#playmap tfoot tr.toright{
+    font-family: quicksand, mini;
+    position: absolute;
+    display: block;
+    color: white;
+    transform: translateY(-50%);
+}
+
+#game-leaderboard{
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: black;
+    color: black;
+}
+
+#game-leaderboard tr.dead{
+    opacity: 0.4;
+}
+
+#game-leaderboard tr.afk{    
+    opacity: 0.7;
+    background-color: red;
+}
+
+#game-leaderboard td, 
+#game-leaderboard th{
+    padding: 5px;
+    text-align: center;
+    background-color: white;
+}
+
+#turncounter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    font-size: 16px;
+    background: white;
+    color: black;
+    border-right: 2px solid teal;
+    border-bottom: 2px solid teal;
+    text-align: center;
+    min-width: 80px;
+}
+
+#endalert{
+    text-align: center;
+    color: black;
+    background: rgb(249, 249, 249);
+    box-shadow: teal 2px 2px;
+    padding: 20px;
+    min-width: 200px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+#endalert h3{
+    font-size: 2em;
+}
+
+#endalert p{
+    font-size: 1.2em;
+    margin: 10px;
+}

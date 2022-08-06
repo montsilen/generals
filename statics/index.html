@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>将军棋</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="./index.css">
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script src="./socket.io.min.js"></script>
+    <script src="./index.js"></script>
+</head>
+
+<body>
+    <article id="main">
+        <h1 class="main-title">将军棋</h1>
+        <h4 class="main-subtitle">保护你的将军，击败对手的将军<br>南师附中第一届暑假将军棋锦标赛</h4>
+        <div>
+            <p class="points"><span class="star">★</span> <span id="stars"></span></p>
+            <p class="rank">排名 <span id="ranks"></span></p>
+        </div>
+        <div class="choices">
+            <input onclick="showusername()" type="text" id="username" placeholder="Anonymous" autocomplete="off" value="" readonly>
+            <br>
+            <button onclick="prepare()">准备</button>
+            <br>
+            <button onclick="showcalender()">日程</button>
+            <br>
+            <button onclick="showrule()">规则</button>
+        </div>
+        <div id="leaderboardbutton">
+            <img src="./leaderboard.png" alt="">
+        </div>
+        <div id="profilebutton">
+            <img src="./profile.png" alt="">
+        </div>
+    </article>
+    <div id="waitingbox">
+        <div id="waiting">
+            <div id="waitinginfo">比赛还有<span id="timeleft"></span>开始，已有<span id="players"></span>人准备
+                <button class="inverted" onclick="stopprepare()">×</button>
+            </div>
+        </div>
+    </div>
+    <div id="calenderback" class="alertback" style="display: none;">
+        <div class="calenderclickhide" id="calenderclickhide1"></div>
+        <div class="calenderclickhide" id="calenderclickhide2"></div>
+        <div class="calenderclickhide" id="calenderclickhide3"></div>
+        <div class="calenderclickhide" id="calenderclickhide4"></div>
+        <div id="calender" class="alert">
+            <h3 id="calendertitle">比赛日程</h3>
+            <div id="calendertable">
+                <table>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="ruleback" class="alertback" style="display: none;">
+        <div class="ruleclickhide" id="ruleclickhide1"></div>
+        <div class="ruleclickhide" id="ruleclickhide2"></div>
+        <div class="ruleclickhide" id="ruleclickhide3"></div>
+        <div class="ruleclickhide" id="ruleclickhide4"></div>
+        <div id="rule" class="alert">
+            <h3 id="ruletitle">规则</h3>
+            <div id="rulebody">
+                <p>1. 这个网站是对generals.io的拙劣模仿，仅供南师附中将军棋锦标赛使用。</p>
+                <p>2. 由于技术水平有限，本网站应该有很多bug，但是如果大家不故意去找bug，应该还是没什么bug。</p>
+                <p>3. 积分计算公式已经有了一个很绝妙的运算方式，但是这里空间太小了，写不下。</p>
+            </div>
+        </div>
+    </div>
+    <div id="leaderboardback" class="alertback" style="display: none;">
+        <div class="leaderboardclickhide" id="leaderboardclickhide"></div>
+        <div id="leaderboard" class="alert">
+            <h3 id="leaderboardtitle">排行榜</h3>
+            <div id="leaderboardtable">
+                <table>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="userback" class="alertback" style="display: none;">
+        <div class="userclickhide" id="userclickhide"></div>
+        <div id="user" class="alert">
+            <h3 id="usertitle">设置您的用户名</h3>
+            <div id="userinput">
+                <input id="setusername" type="text" autocomplete="off">
+            </div>
+            <div id="userset">
+                <button onclick="setusername()">确定</button>
+            </div>
+            <div id="usersetfailed" style="display: none;"></div>
+        </div>
+    </div>
+    <div id="useralertback" class="alertback">
+        <div class="useralertclickhide" id="useralertclickhide1"></div>
+        <div class="useralertclickhide" id="useralertclickhide2"></div>
+        <div class="useralertclickhide" id="useralertclickhide3"></div>
+        <div class="useralertclickhide" id="useralertclickhide4"></div>
+        <div id="useralert" class="alert">
+            <div>正在连接</div>
+        </div>
+    </div>
+    <div id="gamestart" style="display: none;">
+        <div>
+            <h3>比赛开始</h3>
+            <div>你的颜色是：<span id="generalcolor">■</span></div>
+        </div>
+    </div>
+    <table id="playmap" style="display: none;">
+        <tbody></tbody>
+        <tfoot></tfoot>
+    </table>
+    <table id="game-leaderboard" style="display: none;">
+        <tbody>
+        </tbody>
+    </table>
+    <div id="turncounter" style="display: none;">回合 <span></span></div>
+    <div id="endalert" style="display: none;">
+        <h3>比赛结束</h3>
+        <p></p>
+        <button class="inverted" id="exitgame">退出</button>
+    </div>
+</body>
+
+</html>
